@@ -80,12 +80,13 @@ class AppCubit extends Cubit <AppStates>
       {
         print('$value Inserted succesfully');
         emit(AppInsertDataBaseState());
-        getDataFromDatabase(database).then((value)
-        {
-          tasks = value;
-          emit(AppGetDataBaseState());
 
-        });
+          getDataFromDatabase(database);
+          // {
+          //   tasks = value;
+          //   emit(AppGetDataBaseState());
+          //
+          // });
       }
       ).catchError((error)
       {
@@ -93,12 +94,16 @@ class AppCubit extends Cubit <AppStates>
       });
     });
   }
-  void getDataFromDatabase(database)
+  void getDataFromDatabase (database)
   {
     emit(AppGetDataBaseLoadingState());
      database.rawQuery('SELECT * FROM tasks').then((value)
      {
        tasks = value;
+       print(tasks);
+       value.forEach((element) {
+         print(element['status']);
+       });
        emit(AppGetDataBaseState());
 
      });
@@ -114,6 +119,7 @@ class AppCubit extends Cubit <AppStates>
         'UPDATE tasks SET status = ? WHERE name = ?',
         ['$status', id]).then((value)
      {
+
        emit(AppUpdateDataBaseState());
      });
 

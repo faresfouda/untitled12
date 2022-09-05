@@ -59,7 +59,7 @@ Widget defaultFormField({
   },
   validator: (s)
   {
-    validate(s);
+   return validate(s);
   },
   onTap:()
   {
@@ -126,6 +126,7 @@ Widget BuildTaskItem(Map model,context) =>Padding(
             id: model['id'],);
         },
         icon: Icon(Icons.check_box),
+        color: Colors.green,
       ),
       SizedBox(
         width: 20.0,

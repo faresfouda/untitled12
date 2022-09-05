@@ -81,7 +81,12 @@ class HomeLayout extends StatelessWidget {
                                   defaultFormField(
                                       controller: titleController,
                                       type: TextInputType.text,
-                                      validate: (value) => "not valid",
+                                      validate: (value) {
+                                        if (value?.length == 0)
+                                        {
+                                          return "not valid";
+                                        }
+                                      },
                                       label: 'Task Title',
                                       prefix: Icons.title),
                                   SizedBox(
@@ -100,7 +105,12 @@ class HomeLayout extends StatelessWidget {
                                           print(value.format(context));
                                         });
                                       },
-                                      validate: ( value) => "not valid",
+                                      validate: ( value) {
+                                        if (value?.length == 0)
+                                        {
+                                          return "not valid";
+                                        }
+                                      },
                                       label: 'Task Time',
                                       prefix: Icons.watch_later),
                                   SizedBox(
@@ -122,7 +132,12 @@ class HomeLayout extends StatelessWidget {
                                               DateFormat.yMMMd().format(value);
                                         });
                                       },
-                                      validate: ( value) => "not valid",
+                                      validate: ( value) {
+                                        if (value?.length == 0)
+                                        {
+                                          return "not valid";
+                                        }
+                                      },
                                       label: 'Task date',
                                       prefix: Icons.calendar_month),
                                 ],

@@ -10,25 +10,34 @@ final formKey = GlobalKey<FormState>();
     return Scaffold(
     body: Form(
         key: formKey,
-        child: Column(
-          children:
-          [
-            TextFormField(
-              validator: (value) => "not valid",
-            ),
-            ElevatedButton(
-                onPressed: ()
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+            [
+              TextFormField(
+                validator: (value)
                 {
-                  if (formKey.currentState!.validate())
+                  if (value?.length == 0)
                     {
-                      print('valid');
+                      return "not valid";
                     }
                 },
-                child: Text(
-                  'submit'
-                )
-            )
-          ],
+              ),
+              ElevatedButton(
+                  onPressed: ()
+                  {
+                    if (formKey.currentState!.validate())
+                      {
+                        print('valid');
+                      }
+                  },
+                  child: Text(
+                    'submit'
+                  )
+              )
+            ],
+          ),
         )
     )
     );

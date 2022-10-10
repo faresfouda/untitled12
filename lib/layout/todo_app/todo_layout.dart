@@ -10,7 +10,7 @@ import 'package:untitled1/shared/components/components.dart';
 import 'package:untitled1/shared/cubit/cubit.dart';
 import 'package:untitled1/shared/cubit/states.dart';
 
-import '../shared/components/constants.dart';
+import '../../shared/components/constants.dart';
 
 class HomeLayout extends StatelessWidget {
   var scaffoldkey = GlobalKey<ScaffoldState>();
